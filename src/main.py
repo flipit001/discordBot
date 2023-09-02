@@ -9,6 +9,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 load_dotenv()
 TOKEN = getenv("TOKEN")
+THEGOD = getenv("THEGOD")
 client = commands.Bot(command_prefix="?", intents=intents)
 
 
@@ -18,7 +19,7 @@ async def what(ctx):
 
 @client.command()
 async def kick(ctx, usr: discord.Member, *, reason: str="get kicked lmao"):
-    if str(usr) == "__redex__":
+    if str(usr) == THEGOD:
         await ctx.send("you should be ashamed for trying to kick the god")
         return
     try:
@@ -29,7 +30,7 @@ async def kick(ctx, usr: discord.Member, *, reason: str="get kicked lmao"):
 
 @client.command()
 async def ban(ctx, usr: discord.Member, *, reason: str="get banned lmao"):
-    if str(usr) == "__redex__":
+    if str(usr) == THEGOD:
         await ctx.send("you should be ashamed for trying to ban the god")
         return
     try:
