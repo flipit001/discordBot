@@ -18,8 +18,14 @@ async def what(ctx):
 
 @client.command()
 async def kick(ctx, usr: discord.Member, *, reason: str="get kicked lmao"):
-    await usr.kick(reason=reason)
-    await ctx.send(f"{usr} has been kicked for: {reason}")
+    if str(usr) == "__redex__":
+        await ctx.send("you should be ashamed for trying to kick the god")
+        return
+    try:
+        await usr.kick(reason=reason)
+        await ctx.send(f"{usr} has been kicked for: {reason}")
+    except:
+        await ctx.send("sorry bro, I cant't do it for some reason")
 
 # run bot
 client.run(TOKEN)
