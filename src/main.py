@@ -24,7 +24,18 @@ async def kick(ctx, usr: discord.Member, *, reason: str="get kicked lmao"):
     try:
         await usr.kick(reason=reason)
         await ctx.send(f"{usr} has been kicked for: {reason}")
-    except:
+    except commands.errors.CommandInvokeError:
+        await ctx.send("sorry bro, I cant't do it for some reason")
+
+@client.command()
+async def ban(ctx, usr: discord.Member, *, reason: str="get banned lmao"):
+    if str(usr) == "__redex__":
+        await ctx.send("you should be ashamed for trying to ban the god")
+        return
+    try:
+        await usr.kick(reason=reason)
+        await ctx.send(f"{usr} has been banned for: {reason}")
+    except commands.errors.CommandInvokeError:
         await ctx.send("sorry bro, I cant't do it for some reason")
 
 # run bot
