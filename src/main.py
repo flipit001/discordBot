@@ -12,7 +12,7 @@ TOKEN = getenv("TOKEN")
 THEGOD = getenv("THEGOD")
 client = commands.Bot(command_prefix="?", intents=intents)
 
-
+# commands
 @client.command()
 async def what(ctx):
     await ctx.send("I know ur confused :)")
@@ -26,7 +26,7 @@ async def kick(ctx, usr: discord.Member, *, reason: str="get kicked lmao"):
         await usr.kick(reason=reason)
         await ctx.send(f"{usr} has been kicked for: {reason}")
     except commands.errors.CommandInvokeError:
-        await ctx.send("sorry bro, I cant't do it for some reason")
+        await ctx.send("sorry bro, I can't do it for some reason")
 
 @client.command()
 async def ban(ctx, usr: discord.Member, *, reason: str="get banned lmao"):
@@ -37,7 +37,13 @@ async def ban(ctx, usr: discord.Member, *, reason: str="get banned lmao"):
         await usr.kick(reason=reason)
         await ctx.send(f"{usr} has been banned for: {reason}")
     except commands.errors.CommandInvokeError:
-        await ctx.send("sorry bro, I cant't do it for some reason")
+        await ctx.send("sorry bro, I can't do it for some reason")
+
+@client.command()
+async def troll_kid(ctx, user: discord.User, *, msg: str):
+    await user.send(msg)
+    await ctx.message.delete()
+
 
 # run bot
 client.run(TOKEN)
