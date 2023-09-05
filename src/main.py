@@ -41,8 +41,13 @@ async def ban(ctx, usr: discord.Member, *, reason: str="get banned lmao"):
 
 @client.command()
 async def troll_kid(ctx, user: discord.User, *, msg: str):
-    await user.send(msg)
-    await ctx.message.delete()
+    # print(ctx.message.author, "__redex__")
+    if str(ctx.message.author) == THEGOD:
+        await user.send(msg)
+        await ctx.message.delete()
+
+    else:
+        await ctx.send("hell no")
 
 
 # run bot
